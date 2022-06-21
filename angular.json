@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "kallpa-pay-backend": {
+    "kallpapay": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -76,15 +76,15 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "kallpa-pay-backend:build:development",
+            "browserTarget": "kallpapay:build:development",
             "port": 4200
           },
           "configurations": {
             "production": {
-              "browserTarget": "kallpa-pay-backend:build:production"
+              "browserTarget": "kallpapay:build:production"
             },
             "development": {
-              "browserTarget": "kallpa-pay-backend:build:development"
+              "browserTarget": "kallpapay:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -98,7 +98,7 @@
       }
     }
   },
-  "defaultProject": "kallpa-pay-backend",
+  "defaultProject": "kallpapay",
   "cli": {
     "cache": {
       "enabled": true,

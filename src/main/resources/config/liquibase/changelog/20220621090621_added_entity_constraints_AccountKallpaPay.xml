@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity AccountKallpaPay.
+    -->
+    <changeSet id="20220621090621-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="balances_id"
+                                 baseTableName="account_kallpa_pay"
+                                 constraintName="fk_account_kallpa_pay__balances_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="account_balances"/>
+
+        <addForeignKeyConstraint baseColumnNames="account_holder_id"
+                                 baseTableName="account_kallpa_pay"
+                                 constraintName="fk_account_kallpa_pay__account_holder_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="account_holder"/>
+    </changeSet>
+</databaseChangeLog>

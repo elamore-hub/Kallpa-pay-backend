@@ -1,0 +1,34 @@
+{
+  "kallpapayApp": {
+    "accountKallpaPay": {
+      "home": {
+        "title": "AccountKallpaPays",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Account Kallpa Pay",
+        "createOrEditLabel": "Créer ou éditer un Account Kallpa Pay",
+        "notFound": "Aucun Account Kallpa Pay trouvé"
+      },
+      "created": "Un nouveau Account Kallpa Pay a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Account Kallpa Pay avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Account Kallpa Pay avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Account Kallpa Pay {{ id }} ?"
+      },
+      "detail": {
+        "title": "Account Kallpa Pay"
+      },
+      "id": "ID",
+      "externalId": "External Id",
+      "number": "Number",
+      "name": "Name",
+      "currency": "Currency",
+      "status": "Status",
+      "language": "Language",
+      "balances": "Balances",
+      "accountMembership": "Account Membership",
+      "iBAN": "I BAN",
+      "transaction": "Transaction",
+      "accountHolder": "Account Holder"
+    }
+  }
+}

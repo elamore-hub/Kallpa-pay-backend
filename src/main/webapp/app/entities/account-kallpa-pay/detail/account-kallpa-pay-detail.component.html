@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="accountKallpaPay">
+      <h2 data-cy="accountKallpaPayDetailsHeading">
+        <span jhiTranslate="kallpapayApp.accountKallpaPay.detail.title">Account Kallpa Pay</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ accountKallpaPay.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.accountKallpaPay.externalId">External Id</span></dt>
+        <dd>
+          <span>{{ accountKallpaPay.externalId }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.accountKallpaPay.number">Number</span></dt>
+        <dd>
+          <span>{{ accountKallpaPay.number }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.accountKallpaPay.name">Name</span></dt>
+        <dd>
+          <span>{{ accountKallpaPay.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.accountKallpaPay.currency">Currency</span></dt>
+        <dd>
+          <span>{{ accountKallpaPay.currency }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.accountKallpaPay.status">Status</span></dt>
+        <dd>
+          <span>{{ accountKallpaPay.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.accountKallpaPay.language">Language</span></dt>
+        <dd>
+          <span>{{ accountKallpaPay.language }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.accountKallpaPay.balances">Balances</span></dt>
+        <dd>
+          <div *ngIf="accountKallpaPay.balances">
+            <a [routerLink]="['/account-balances', accountKallpaPay.balances?.id, 'view']">{{ accountKallpaPay.balances?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.accountKallpaPay.accountHolder">Account Holder</span></dt>
+        <dd>
+          <div *ngIf="accountKallpaPay.accountHolder">
+            <a [routerLink]="['/account-holder', accountKallpaPay.accountHolder?.id, 'view']">{{ accountKallpaPay.accountHolder?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/account-kallpa-pay', accountKallpaPay.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
