@@ -49,7 +49,7 @@ entity Amount {
   value Long
 }
 
-entity AccountKallpaPay {
+entity BankAccount {
 	externalId String,
   number String
   name String,
@@ -185,12 +185,12 @@ entity Participation {
 relationship OneToMany {
   //Banking Relations
   //User to AccountMembership,
-  AccountHolder to AccountKallpaPay,
+  AccountHolder to BankAccount,
   AccountHolder to SupportingDocument,
   AccountMembership to Card,
-  AccountKallpaPay to AccountMembership,
-  AccountKallpaPay to IBAN,
-  AccountKallpaPay to Transaction,
+  BankAccount to AccountMembership,
+  BankAccount to IBAN,
+  BankAccount to Transaction,
   IBAN to Transaction,
   Payment to Transaction,
 
@@ -212,7 +212,7 @@ relationship OneToOne {
     AccountHolder{accountHolderInfo} to AccountHolderInfo,
     AccountHolder{residencyAddress} to AddressInfo,
     
-    AccountKallpaPay{balances} to AccountBalances,
+    BankAccount{balances} to AccountBalances,
     
     AccountBalances{available} to Amount,
     AccountBalances{booked} to Amount,
