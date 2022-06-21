@@ -1,6 +1,6 @@
 {
-  "name": "KallpaPayBackend",
-  "short_name": "KallpaPayBackend",
+  "name": "Kallpapay",
+  "short_name": "Kallpapay",
   "icons": [
     {
       "src": "./content/images/jhipster_family_member_1_head-192.png",

@@ -1,0 +1,100 @@
+<div>
+  <h2 id="page-heading" data-cy="AccountKallpaPayHeading">
+    <span jhiTranslate="kallpapayApp.accountKallpaPay.home.title">Account Kallpa Pays</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="kallpapayApp.accountKallpaPay.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-account-kallpa-pay"
+        [routerLink]="['/account-kallpa-pay/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="kallpapayApp.accountKallpaPay.home.createLabel"> Create a new Account Kallpa Pay </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="accountKallpaPays?.length === 0">
+    <span jhiTranslate="kallpapayApp.accountKallpaPay.home.notFound">No accountKallpaPays found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="accountKallpaPays && accountKallpaPays.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.accountKallpaPay.externalId">External Id</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.accountKallpaPay.number">Number</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.accountKallpaPay.name">Name</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.accountKallpaPay.currency">Currency</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.accountKallpaPay.status">Status</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.accountKallpaPay.language">Language</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.accountKallpaPay.balances">Balances</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.accountKallpaPay.accountHolder">Account Holder</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let accountKallpaPay of accountKallpaPays; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/account-kallpa-pay', accountKallpaPay.id, 'view']">{{ accountKallpaPay.id }}</a>
+          </td>
+          <td>{{ accountKallpaPay.externalId }}</td>
+          <td>{{ accountKallpaPay.number }}</td>
+          <td>{{ accountKallpaPay.name }}</td>
+          <td>{{ accountKallpaPay.currency }}</td>
+          <td>{{ accountKallpaPay.status }}</td>
+          <td>{{ accountKallpaPay.language }}</td>
+          <td>
+            <div *ngIf="accountKallpaPay.balances">
+              <a [routerLink]="['/account-balances', accountKallpaPay.balances?.id, 'view']">{{ accountKallpaPay.balances?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="accountKallpaPay.accountHolder">
+              <a [routerLink]="['/account-holder', accountKallpaPay.accountHolder?.id, 'view']">{{ accountKallpaPay.accountHolder?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/account-kallpa-pay', accountKallpaPay.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/account-kallpa-pay', accountKallpaPay.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(accountKallpaPay)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

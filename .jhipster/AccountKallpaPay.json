@@ -1,0 +1,72 @@
+{
+  "applications": ["kallpapay"],
+  "changelogDate": "20220621090621",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "account_kallpa_pay",
+  "fields": [
+    {
+      "fieldName": "externalId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "number",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "currency",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "language",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "AccountKallpaPay",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "accountBalances",
+      "otherEntityRelationshipName": "accountKallpaPay",
+      "ownerSide": true,
+      "relationshipName": "balances",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "accountMembership",
+      "otherEntityRelationshipName": "accountKallpaPay",
+      "relationshipName": "accountMembership",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "iBAN",
+      "otherEntityRelationshipName": "accountKallpaPay",
+      "relationshipName": "iBAN",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "transaction",
+      "otherEntityRelationshipName": "accountKallpaPay",
+      "relationshipName": "transaction",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "accountHolder",
+      "otherEntityRelationshipName": "accountKallpaPay",
+      "relationshipName": "accountHolder",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}
